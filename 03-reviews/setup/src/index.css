@@ -245,8 +245,14 @@ main {
   transition: var(--transition);
   border-color: transparent;
   cursor: pointer;
+  transform: translateX(390%);
 }
 .random-btn:hover {
   background: var(--clr-primary-5);
   color: var(--clr-primary-1);
+}
+
+.center-span {
+  align-items: center;
+  text-align: center;
 }
