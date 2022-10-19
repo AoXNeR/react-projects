@@ -4,7 +4,14 @@ import Categories from './Categories';
 import items from './data';
 
 function App() {
-  return <h2>menu project setup</h2>;
+
+  const [relevantCategory, setRelevantCategory] = useState('All');
+
+
+  return <>
+    <Menu setCategory={setRelevantCategory}/>
+    <Categories category={relevantCategory} items={items}/>
+  </>
 }
 
 export default App;

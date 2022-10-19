@@ -4,6 +4,11 @@ Variables
 ===============
 */
 
+.container {
+  margin-top: 30px;
+  text-align: center;
+}
+
 :root {
   /* dark shades of primary color*/
   --clr-primary-1: hsl(205, 86%, 17%);
