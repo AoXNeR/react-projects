@@ -5,26 +5,18 @@ import Values from "values.js";
 
 function App() {
   const [color, setColor] = useState("");
-  const [errorOne, setError] = useState(false);
-  const [errorTwo, setErrorTwo] = useState(false);
-  const [jumps, setJumps] = useState();
+  const [error, setError] = useState(false);
   const [list, setList] = useState(new Values("#f15025").all(10));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      if (!jumps) {
-        throw new Error("Value cannot be null");
-      }
-      console.log(jumps);
-      let colors = new Values(color).all(1);
+      let colors = new Values(color).all(10);
+      console.log(colors);
       setList(colors);
       setError(false);
-      setErrorTwo(false);
-      console.log(colors);
     } catch (err) {
       setError(true);
-      setErrorTwo(true);
       console.log(err);
     }
   };
@@ -39,14 +31,7 @@ function App() {
             value={color}
             onChange={(e) => setColor(e.target.value)}
             placeholder="#f15025"
-            className={`${errorOne ? "error" : null}`}
-          ></input>
-          <input
-            type="text"
-            value={jumps}
-            onChange={(e) => setJumps(e.target.value)}
-            placeholder="10"
-            className={`${errorTwo ? "error" : null}`}
+            className={`${error ? "error" : null}`}
           ></input>
           <button className="btn" type="submit">
             submit
@@ -55,7 +40,6 @@ function App() {
       </section>
       <section className="colors">
         {list.map((color, index) => {
-          console.log(color);
           const hex = color.hex;
           return (
             <SingleColor key={index} {...color} index={index} hexColor={hex} />
