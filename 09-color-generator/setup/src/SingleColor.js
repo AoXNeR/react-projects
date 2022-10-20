@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import rgbToHex from "./utils";
 
-const SingleColor = ({ rgb, index, weight, hexColor }) => {
+const SingleColor = ({ rgb, index, weight, hexColor, iterations }) => {
   const [alert, setAlert] = useState(false);
   const bcg = rgb.join(",");
   const hexValue = `#${hexColor}`;
@@ -21,7 +21,7 @@ const SingleColor = ({ rgb, index, weight, hexColor }) => {
 
   return (
     <article
-      className={`${index > 10 && "color-light"} color`}
+      className={`${index > iterations / 2 && "color-light"} color`}
       style={{ backgroundColor: `rgb(${bcg})` }}
       onClick={handleClick}
     >
