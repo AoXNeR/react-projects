@@ -21,7 +21,7 @@ const SingleColor = ({ rgb, index, weight, hexColor, iterations }) => {
 
   return (
     <article
-      className={`${index > iterations / 2 && "color-light"} color`}
+      className={`${index > iterations && "color-light"} color`}
       style={{ backgroundColor: `rgb(${bcg})` }}
       onClick={handleClick}
     >

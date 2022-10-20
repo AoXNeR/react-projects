@@ -6,15 +6,17 @@ import Values from "values.js";
 function App() {
   const [color, setColor] = useState("");
   const [iterations, setIterations] = useState();
+  const [half, setHalf] = useState(10);
   const [error, setError] = useState(false);
   const [errorTwo, setErrorTwo] = useState(false);
-  const [list, setList] = useState(new Values("#ff0f10").all(iterations));
+  const [list, setList] = useState(new Values("#ff0f10").all(10));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
       console.log(iterations);
       let colors = new Values(color).all(iterations);
+      setHalf(iterations / 2);
       console.log(colors);
       setList(colors);
       setError(false);
@@ -35,7 +37,7 @@ function App() {
             type="text"
             value={color}
             onChange={(e) => setColor(e.target.value)}
-            placeholder="#f15025"
+            placeholder="#ff0f10"
             className={`${error ? "error" : null}`}
           ></input>
           <input
@@ -59,7 +61,7 @@ function App() {
               {...color}
               index={index}
               hexColor={hex}
-              iterations={iterations}
+              iterations={half}
             />
           );
         })}
