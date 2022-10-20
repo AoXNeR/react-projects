@@ -16,7 +16,7 @@ function App() {
     try {
       console.log(iterations);
       let colors = new Values(color).all(iterations);
-      setHalf(iterations / 2);
+      setHalf(50 / iterations);
       console.log(colors);
       setList(colors);
       setError(false);
